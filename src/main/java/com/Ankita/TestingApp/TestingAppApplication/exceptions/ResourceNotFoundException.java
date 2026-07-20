@@ -1,6 +1,6 @@
 package com.Ankita.TestingApp.TestingAppApplication.exceptions;
 
-public class ResourceNotFoundException extends RuntimeException{
+public class  ResourceNotFoundException extends RuntimeException{
     public ResourceNotFoundException(String message) {
         super(message);
     }
