@@ -1,5 +1,6 @@
 package com.Ankita.TestingApp.TestingAppApplication.repositories;
 
+import com.Ankita.TestingApp.TestingAppApplication.TestContainerConfiguration;
 import com.Ankita.TestingApp.TestingAppApplication.dto.EmployeeDto;
 import com.Ankita.TestingApp.TestingAppApplication.entites.Employee;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,14 +9,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.context.annotation.Import;
 
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
-//@SpringBootTest
+
 @DataJpaTest
-//@AutoConfigureTestDatabase(replace= AutoConfigureTestDatabase.Replace.ANY)
+@Import(TestContainerConfiguration.class)
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+
 class EmployeeRepositoryTest {
 
     @Autowired
@@ -59,9 +63,7 @@ class EmployeeRepositoryTest {
         assertThat(employeeList).isNotNull();
         assertThat(employeeList).isEmpty();
 
-
-
-
     }
 
 }
+
